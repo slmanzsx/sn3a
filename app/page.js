@@ -18,17 +18,21 @@ export default function Home({ searchParams }) {
     trending:'Trending', why:'Why Sn3a?', escrow:'Buyer Protection (Escrow)', pay:'Local payment methods', ship:'Reliable shipping',
     langSwitch:'العربية'
   }
+
   const dir = (lang==='ar') ? 'rtl' : 'ltr'
+
   const products = [
     {id:'1', title: (lang==='ar'?'سبحة خرز طبيعي يدوي':'Handmade bead misbaha'), price: 89, img:'https://picsum.photos/seed/beads/800/600'},
     {id:'2', title: (lang==='ar'?'فخار مزخرف — قطعة واحدة':'Decorated pottery'), price:149, img:'https://picsum.photos/seed/pottery/800/600'},
     {id:'3', title: (lang==='ar'?'لوحة بخط عربي':'Arabic calligraphy wall art'), price:220, img:'https://picsum.photos/seed/calligraphy/800/600'},
     {id:'4', title: (lang==='ar'?'حقيبة قماش مطرّزة':'Embroidered canvas tote'), price:120, img:'https://picsum.photos/seed/bags/800/600'},
   ]
+
   const langHref = (lang==='ar') ? '/?lang=en' : '/?lang=ar'
 
   return (
     <div dir={dir}>
+      {/* Header */}
       <header className="header">
         <div className="header-inner container" style={{display:'flex'}}>
           <div className="brand">{t.brandAr} <span className="sep">|</span> <span style={{color:'#222'}}>{t.brandEn}</span></div>
@@ -39,6 +43,7 @@ export default function Home({ searchParams }) {
         </div>
       </header>
 
+      {/* Hero */}
       <main className="container">
         <section className="hero" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
           <div>
@@ -59,6 +64,7 @@ export default function Home({ searchParams }) {
           </div>
         </section>
 
+        {/* Trending */}
         <section style={{marginTop:28}}>
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:8}}>
             <h2 style={{fontSize:18,fontWeight:800}}>{t.trending}</h2>
@@ -77,6 +83,7 @@ export default function Home({ searchParams }) {
           </div>
         </section>
 
+        {/* Why Sn3a */}
         <section style={{marginTop:28}} className="grid" >
           <h2 style={{fontSize:18,fontWeight:800}}>{t.why}</h2>
           <div className="grid" style={{gridTemplateColumns:'repeat(3,1fr)'}}>
@@ -93,3 +100,4 @@ export default function Home({ searchParams }) {
     </div>
   )
 }
+
